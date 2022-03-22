@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}signup{% endblock title %}
+
+{% block body %}
+{% for i in messages  %}
+<script>
+    alertify.set('notifier','position', 'top-center');
+    var delay = alertify.get('notifier','delay');
+ alertify.set('notifier','delay', 2);
+ alertify.success('{{i}}');
+ alertify.set('notifier','delay', delay);
+
+</script>
+
+{% endfor %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="col-6">
+        <label for="inputState" class="form-label">First Name</label>
+        <input type="text" name="fname" class="form-control"  aria-label="First name">
+      </div><br>
+      <div class="col-6">
+        <label for="inputState" class="form-label">Last Name</label>
+        <input type="text" name="lname" class="form-control"  aria-label="First name">
+      </div><br>
+      
+    <div class="col-6">
+        <label for="inputState" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control"  aria-label="First name">
+      </div><br>
+    
+      <div class="col-6">
+        <label for="inputState" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" aria-label="First name">
+      </div><br>
+    
+      <div class="col-6">
+        <label for="inputAddress" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="inputAddress">
+      </div><br>
+    
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label">Re-Password</label>
+        <input type="password" name="password1" class="form-control" id="inputCity">
+      </div><br>
+    
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Signup</button>
+      </div>
+</form>
+
+{% endblock body %}
